@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI OCR App</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Image to Text Converter</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <input type="file" name="image" required>
+
+        <button type="submit">
+            Extract Text
+        </button>
+
+    </form>
+
+    {% if text %}
+
+    <div class="result">
+
+        <h2>Extracted Text</h2>
+
+        <textarea rows="15">{{ text }}</textarea>
+
+        <br>
+
+        <a href="/download/{{ download_file }}">
+
+            <button class="download-btn">
+                Download TXT
+            </button>
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
